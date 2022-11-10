@@ -1,14 +1,9 @@
-﻿@model List<Skills>
+﻿@model List<Socials>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Socials Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<h2>Skills</h2>
+<h2>Socials</h2>
 
 
 <table class="table table-bordered">
@@ -16,6 +11,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>URL</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +20,7 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Name</td>
+                <td><a href="@item.URL">@item.URL</a></td>
             </tr>
         }
     </tbody>

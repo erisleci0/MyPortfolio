@@ -8,7 +8,7 @@ using MyPortfolio.Models;
 namespace MyPortfolio.Migrations
 {
     [DbContext(typeof(PortfolioDbContext))]
-    [Migration("20221109225522_MyPortfolioMigration")]
+    [Migration("20221110143122_MyPortfolioMigration")]
     partial class MyPortfolioMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
