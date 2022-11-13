@@ -2,10 +2,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@*<div class="text-center">
-    <h1 class="display-4">Welcome1</h1>
-</div>*@
-
 
 <div class="myp-container flex" id="profile">
         <img class="profile-img" id="profile-pic" src="~/images/eris-leci-photo.jpg" alt="" width="300" height="300" />
@@ -15,16 +11,6 @@
         <p>and I'm a Software Engineer. If there is anything I can help, please contact me <a href = "mailto: lecieris@hotmail.com">here</a>
     </div>
 </div>
-
-@*<div class="myp-container">
-    <h2>Bio</h2>
-    <p>Hi, I'm Eris Leci! </p>
-    <p>Hi, I'm Eris Leci! I'm a software engineer with in-depth experience in ASP.NET Core. In a nutshell, I create websites that help
-        organizations address business challenges and meet their needs. I manage everything from website navigation and layout to a company's
-        web hosting and security architecture. My expertise lies within front-end web apps, and the main languages in my tech stack are JavaScript,
-        React, and of course HTML/CSS. I’m a lifelong learner (currently taking a course on building AI chatbots with Python!) and love to read, run,
-        and find new bubble tea shops in New York City.</p>
-</div>*@
 
 <div class="myp-container" id="skills">
     <h2>Skills</h2>
@@ -37,9 +23,11 @@
                 {
                     var skill = Model.Skills[i + j];
                     
+                    <td class="label-td">
+                        <span>@skill.Name</span>
+                    </td>
                     <td>
-                        <span class="label">@skill.Name</span>
-                        <img class="bloc" src=@skill.Icon alt="" width="50" height="50" />
+                        <img class="rounded-img" src=@skill.Icon alt="" width="50" height="50" />
                     </td>
                 }
                 </tr>
@@ -55,10 +43,12 @@
             @foreach (var social in Model.Socials)
             {
                 <tr>
+                    <td class="label-td">
+                        @social.Name
+                    </td>
                     <td>
-                        <span>@social.Name</span>
-                        <a href=@social.URL><img class="bloc" src=@social.Icon alt="" width="50" height="50" /></a>
-                    </td> 
+                        <a href=@social.URL><img class="rounded-img" src=@social.Icon alt="" width="50" height="50" /></a>
+                    </td>
                 </tr>
             }
         </tbody>
