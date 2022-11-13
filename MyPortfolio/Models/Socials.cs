@@ -10,5 +10,6 @@ namespace MyPortfolio.Models
         public string Name { get; set; }
         [Required]
         public string URL { get; set; }
+        public string Icon { get; set; }
     }
 }
