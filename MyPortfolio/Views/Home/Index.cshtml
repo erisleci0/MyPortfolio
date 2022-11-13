@@ -1,30 +1,66 @@
-﻿@model List<Skills>
+﻿@model MyPortfolio.ViewModels.PortfolioDetailsViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
+@*<div class="text-center">
+    <h1 class="display-4">Welcome1</h1>
+</div>*@
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="myp-container flex" id="profile">
+        <img class="profile-img" id="profile-pic" src="~/images/eris-leci-photo.jpg" alt="" width="300" height="300" />
+    <div id="greeting-container">
+        <p>Hi everyone, my name is</p>
+        <h1 id="name">Eris Leci</h1>
+        <p>and I'm a Software Engineer. If there is anything I can help, please contact me <a href = "mailto: lecieris@hotmail.com">here</a>
+    </div>
 </div>
 
-<h2>Skills</h2>
+@*<div class="myp-container">
+    <h2>Bio</h2>
+    <p>Hi, I'm Eris Leci! </p>
+    <p>Hi, I'm Eris Leci! I'm a software engineer with in-depth experience in ASP.NET Core. In a nutshell, I create websites that help
+        organizations address business challenges and meet their needs. I manage everything from website navigation and layout to a company's
+        web hosting and security architecture. My expertise lies within front-end web apps, and the main languages in my tech stack are JavaScript,
+        React, and of course HTML/CSS. I’m a lifelong learner (currently taking a course on building AI chatbots with Python!) and love to read, run,
+        and find new bubble tea shops in New York City.</p>
+</div>*@
 
+<div class="myp-container" id="skills">
+    <h2>Skills</h2>
+    <table class="table">
+        <tbody>
+            @for (var i = 0; i < Model.Skills.Count; i = i + 4)
+            {
+                <tr>
+                @for (var j = 0; j < 4 && i + j < Model.Skills.Count; j++)
+                {
+                    var skill = Model.Skills[i + j];
+                    
+                    <td>
+                        <span class="label">@skill.Name</span>
+                        <img class="bloc" src=@skill.Icon alt="" width="50" height="50" />
+                    </td>
+                }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="myp-container" id="socials">
+    <h2>Socials</h2>
+    <table class="table">
+        <tbody>
+            @foreach (var social in Model.Socials)
+            {
+                <tr>
+                    <td>
+                        <span>@social.Name</span>
+                        <a href=@social.URL><img class="bloc" src=@social.Icon alt="" width="50" height="50" /></a>
+                    </td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
